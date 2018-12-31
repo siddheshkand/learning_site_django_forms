@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Suggest Idea
+{% endblock title %}
+
+{% block content %}
+    {{ message }}
+    <div class="row">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="button" type="submit">
+        </form>
+    </div>
+{% endblock content %}
