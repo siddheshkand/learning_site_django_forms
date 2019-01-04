@@ -1,0 +1,27 @@
+{% extends "courses/layout.html" %}
+{% load course_extras %}
+{% block title %}
+    New Answer
+    {#    New Question {{ quiz.title }} | {{ quiz.course.title }} {{ block.super }}#}
+{% endblock title %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'courses:detail' pk=question.quiz.course.pk %}">{{ question.quiz.course.title }}</a></li>
+    <li>
+        <a href="{% url 'courses:quiz' course_pk=question.quiz.course.pk step_pk=question.quiz.pk %}">{{ question.quiz.title }}</a>
+    </li>
+{% endblock breadcrumbs %}
+<li>{{ question.prompt }}</li>
+{% block content %}
+    <div class="row columns">
+        {{ block.super }}
+        <h1>add ans to question</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="button" value="Submit">
+        </form>
+
+    </div>
+
+{% endblock content %}
