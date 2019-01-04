@@ -47,6 +47,11 @@
 <script src="{% static 'js/vendor/what-input.min.js' %}"></script>
 <script src="{% static 'js/foundation.min.js' %}"></script>
 {% block javascript %}{% endblock %}
-<script>$(document).foundation();</script>
+<script>$(document).foundation();
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.go(1);
+};
+</script>
 </body>
 </html>
